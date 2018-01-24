@@ -2,17 +2,26 @@
 
 <%= form_for(@reservation) do |f| %>
 
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.datetime_select :time %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.number_field :size %>
-  </div>
-  <div class="actions">
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :restaurant_id %><br />
+    <%= f.text_field :restaurant_id %>
+  </p>
+  <p>
+    <%= f.label :when %><br />
+    <%= f.datetime_field :when %>
+  </p>
+  <p>
+    <%= f.label :number_of_people %><br />
+    <%= f.number_field :number_of_people %>
+  </p>
+
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>
 
 <%= form_for(@reservation) do |f| %>
