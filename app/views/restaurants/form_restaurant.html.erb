@@ -3,24 +3,39 @@
   <%= f.label :name %>
 	<%= f.text_field :name %>
 </p>
-<p>
-  <%= f.label :cuisine %>
-  <%= f.text_field :cuisine %>
-</p>
+
 <p>
   <%= f.label :address %>
   <%= f.text_field :address%>
 </p>
+
 <p>
   <%= f.label :capacity %>
 	<%= f.text_field :capacity%>
 </p>
+
+<p>
+  <%= f.label :menu %>
+  <%= f.text_field :menu %>
+</p>
+
+<p>
+  <%= f.label :summary %>
+  <%= f.text_field :summary %>
+</p>
+
+<p>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+</p>
+
 <p>
   <%= f.label :open_time %>
 	<%= f.time_select :open_time,
   :minute_step =>30,
   :ampm => true %>
 </p>
+
 <p>
   <%= f.label :close_time %>
   <%= f.time_select :close_time,
@@ -28,10 +43,6 @@
   :ampm => true %>
 </p>
 
-<p>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url%>
-</p>
 <p>
   <%= f.submit %>
 </p>
