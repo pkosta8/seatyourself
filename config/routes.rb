@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'resturants#index'
-  resources :resturants
+  root 'restaurants#index'
+  resources :restaurants
 
   # get 'resturants' => 'resturants#index'
   #
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   #
   get 'sessions/new' => 'sessions#new'
   post 'sessions/create' => 'sessions#create'
-  
+
 
 
 end

@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :ensure_logged_in, only: [:create, :edit, :destroy]
+  # before_action :load_restaurant
 
   def index
     @reservations = Reservations.all
@@ -22,14 +24,12 @@ class ReservationsController < ApplicationController
     @reservaiton.name             = params[:reservation][:name]
     @reservaiton.date             = params[:reservation][:date]
     @reservaiton.number_of_people = params[:reservation][:number_of_people]
-
       if @resevation.save
-        redirect_to resturants_path, notice: 'Resevations have succesfully been booked'
+        redirect_to resturants_path, notice: 'Reservation have succesfully been booked'
       else
-        render 'resturants'
+        render 'restaurants'
       end
   end
-
   def update
     @reservation = Reservation.find(params[:id])
 
