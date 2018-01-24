@@ -44,9 +44,9 @@ Rails.application.routes.draw do
   # delete 'reservations/:id' => 'reservations#destroy'
   #
   #
-  # get 'sessions/new' => 'sessions#new'
-  # post 'sessions/create' => 'sessions#create'
-  #
+  get 'sessions/new' => 'sessions#new'
+  post 'sessions/create' => 'sessions#create'
+  
 
 
 end
