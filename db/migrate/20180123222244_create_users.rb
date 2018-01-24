@@ -8,6 +8,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :phone_number
 
       t.timestamps
-    end
+    end    
   end
 end
