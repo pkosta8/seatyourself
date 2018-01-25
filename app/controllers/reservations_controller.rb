@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @resevation = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
   end
 
   def new
@@ -15,17 +15,17 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    @resevation = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
   end
 
   def create
-    @reservaiton = Reservation.new
+    @reservation = Reservation.new
 
-    @reservaiton.name             = params[:reservation][:name]
-    @reservaiton.date             = params[:reservation][:date]
-    @reservaiton.number_of_people = params[:reservation][:number_of_people]
-      if @resevation.save
-        redirect_to resturants_path, notice: 'Reservation have succesfully been booked'
+    @reservation.user_id            = params[:reservation][:user_id]
+    @reservation.date               = params[:reservation][:date]
+    @reservation.number_of_people   = params[:reservation][:number_of_people]
+      if @reservation.save
+        redirect_to restaurants_path, notice: 'Reservation have succesfully been booked'
       else
         render 'restaurants'
       end
@@ -33,11 +33,11 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
 
-    @reservaiton.name             = params[:reservation][:name]
-    @reservaiton.date             = params[:reservation][:date]
-    @reservaiton.number_of_people = params[:reservation][:number_of_people]
+    @reservatiton.name             = params[:reservation][:name]
+    @reservation.date             = params[:reservation][:date]
+    @reservation.number_of_people = params[:reservation][:number_of_people]
 
-    if @resevation.save
+    if @reservation.save
       redirect_to resturants_path, notice: 'Resevations have succesfully been updated '
     else
       render :edit
@@ -45,8 +45,8 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservaiton = Reservation.find(params[:id])
-    @reservaiton.destory
+    @reservation = Reservation.find(params[:id])
+    @reservation.destory
     redirect_to "/resturants"
   end
 end
