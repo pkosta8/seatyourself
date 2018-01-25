@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     p @user
 
   if @user.save
-    redirect_to users_path
+    redirect_to restaurants_path
   else
     render :new
     end
