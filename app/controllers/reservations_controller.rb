@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
   # before_action :load_restaurant
 
   def index
-    @reservations = Reservations.all
+    @reservations = Reservation.all
   end
 
   def show
