@@ -15,9 +15,6 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     @user.phone_number          = params[:user][:phone_number]
 
-  puts "********"
-    p @user
-
   if @user.save
     redirect_to restaurants_path
   else
@@ -28,6 +25,4 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
-
 end
