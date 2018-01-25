@@ -1,5 +1,9 @@
 class RestaurantsController < ApplicationController
 
+  def index
+    @restaurants = Restaurant.all
+  end
+
   def new
     @restaurant = Restaurant.new
   end
@@ -18,42 +22,38 @@ class RestaurantsController < ApplicationController
 @restaurant.close_time              =  params[:restaurant][:close_time]
 
 # @restaurant.user_id = current_user.id
-@restaurant.close_time = Time.utc(params[:restaurant]["close_time(1i)"].to_i,
-                                        params[:restaurant]["close_time(2i)"].to_i,
-                                        params[:restaurant]["close_time(3i)"].to_i,
-                                        params[:restaurant]["close_time(4i)"].to_i,
-                                        params[:restaurant]["close_time(5i)"].to_i)
-    @restaurant.open_time = Time.utc(params[:restaurant]["open_time(1i)"].to_i,
-                                        params[:restaurant]["open_time(2i)"].to_i,
-                                        params[:restaurant]["open_time(3i)"].to_i,
-                                        params[:restaurant]["open_time(4i)"].to_i,
-                                        params[:restaurant]["open_time(5i)"].to_i)
+# @restaurant.close_time = Time.utc(params[:restaurant]["close_time(1i)"].to_i,
+#                                         params[:restaurant]["close_time(2i)"].to_i,
+#                                         params[:restaurant]["close_time(3i)"].to_i,
+#                                         params[:restaurant]["close_time(4i)"].to_i,
+#                                         params[:restaurant]["close_time(5i)"].to_i)
+#     @restaurant.open_time = Time.utc(params[:restaurant]["open_time(1i)"].to_i,
+#                                         params[:restaurant]["open_time(2i)"].to_i,
+#                                         params[:restaurant]["open_time(3i)"].to_i,
+#                                         params[:restaurant]["open_time(4i)"].to_i,
+#                                         params[:restaurant]["open_time(5i)"].to_i)
     if @restaurant.save
-      redirect_to restaurants_url  notice: 'Restaurant created '
+      redirect_to restaurants_path  notice: 'Restaurant created '
 
     else
       render :new
     end
   end
 
-  def index
-    @restaurant = Restaurant.all
-  end
+
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant
   end
 
-  def new
-    @restaurant = Restaurant.new
-  end
+
 
   def edit
     @restaurant = Restaurant.find(params[:id])
   end
 
   def update
-    @reservation = Reservation.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     @restaurant                         = Restaurant.new
     @restaurant.name                    = params[:restaurant][:name]
     @restaurant.address                 = params[:restaurant][:address]
@@ -78,16 +78,15 @@ class RestaurantsController < ApplicationController
                                             params[:restaurant]["open_time(4i)"].to_i,
                                             params[:restaurant]["open_time(5i)"].to_i)
     if @restaurant.save
-      redirect_to resturants_url, notice: 'Restaurant updated'
+      redirect_to restaurants_path, notice: 'Restaurant updated'
     else
       render :edit
     end
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
-    @restaurant.destory
-    redirect_to restaurants_url
+        @restaurant.destroy
+        redirect_to restaurants_path
   end
 
 end
