@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -16,9 +19,15 @@ class UsersController < ApplicationController
     p @user
 
   if @user.save
-    redirect_to users_url
+    redirect_to users_path
   else
     render :new
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+
 end

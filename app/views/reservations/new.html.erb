@@ -10,10 +10,16 @@
     <%= f.label :restaurant_id %><br />
     <%= f.text_field :restaurant_id %>
   </p>
-  <p>
+<!--  f.datetime_select for time field look at ruby docs-->
+  <!-- <p>
     <%= f.label :date %><br />
-    <%= f.date_field :date %>
+    <%= f.datetime_select :date %>
+  </p> -->
+  <p>
+    <%= f.label :time %><br />
+    <%= f.date_field :time %>
   </p>
+
   <p>
     <%= f.label :time %><br />
     <%= f.time_field :time %>
