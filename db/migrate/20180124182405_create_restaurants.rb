@@ -8,7 +8,9 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.string :menu
       t.text :summary
       t.integer :price
-      t.integer :owner_id
+      # t.integer :owner_id
+      # t.integer :open_time
+      # t.integer :close_time
 
       t.timestamps
     end
