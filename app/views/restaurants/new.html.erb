@@ -1,4 +1,8 @@
+<h1>Create New Restaurant</h1>
+
+
 <%= form_for @restaurant do |f|%>
+
 <p>
   <%= f.label :name %>
 	<%= f.text_field :name %>
@@ -28,7 +32,9 @@
   <%= f.label :price %>
   <%= f.text_field :price %>
 </p>
-<!--
+
+
+
 <p>
   <%= f.label :open_time %>
 	<%= f.time_select :open_time,
@@ -41,7 +47,7 @@
   <%= f.time_select :close_time,
   :minute_step =>30,
   :ampm => true %>
-</p> -->
+</p>
 
 <p>
   <%= f.submit %>
