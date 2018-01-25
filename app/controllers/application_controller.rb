@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def ensure_logged_in
     if !session[:user_id]
       flash[:alert] = ["You need to be logged in to do that!"]
-      redirect_to new_session_url
+      redirect_to sessions_new_path
     end
   end
 
