@@ -52,7 +52,7 @@
 <p>
   <%= f.submit %>
 </p>
-  <% if @r.errors.any? %>
+  <% if @restaurant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this product from being saved:</h2>
 
